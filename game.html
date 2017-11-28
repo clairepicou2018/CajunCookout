@@ -1,0 +1,432 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+          
+        <title>Cajun Cookout</title>
+        
+        <!--Gives each customer image a value that can be called later-->
+        <div id = 'customers'>
+            <div id = 'customer1'>
+                <img src = 'CloserCustomer1.png'>
+            </div>
+            <div id = 'customer2'>
+                <img src = 'CloserCustomer2.png'>
+            </div>
+            <div id = 'customer3'>
+                <img src = 'CloserCustomer3.png'>
+            </div>
+            <div id = 'customer4'>
+                <img src = 'BiggerAndCloserCustomer4.png'>
+            </div>
+            <div id = 'customer5'>
+                <img src = 'CloserCustomer5.png'>
+            </div>
+        </div>
+    
+        <style>
+       /*Begin CSS styling*/
+        body
+        {
+            width: 650px;
+            height: 650px;
+            margin:0 auto;
+            background-color: black;
+            background-image: url("gamebackground.png");
+            background-size: 650px, 650px;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 25px;
+        }
+            [class = 'background'] img 
+            {
+               width:650px;
+               height:650px;
+               padding-top: 25px;
+            } 
+        .modal { 
+             display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        [class = "close"]
+        {
+            display: block;
+			position: relative;
+			width: 95px;
+			height: 70px;
+			top: center;
+			left: center;
+			font-size: 300%;
+			text-align: center;
+			font-family: 'trebuchet';
+			color: white;
+        }
+        [class = "storeTitle"]
+        {
+            font-family: 'trebuchet';
+            text-align: center;
+            color: white;
+            font-size: 400%;
+            
+        }
+        [class = "storeContent"]
+        {
+            font-family: 'trebuchet';
+            text-align: center;
+            color: white;
+            font-size: 100%;
+        }
+        [class = "moneyCounter"]
+        {
+            font-family: 'trebuchet';
+            font-size: 150%;
+            position: absolute;
+            right: 70px;
+            top:10px;
+            margin: auto;
+            color: white;
+            text-decoration: bold;
+        }
+        [class = "stock"] 
+        {
+            font-family: 'trebuchet';
+            font-size: 150%;
+            color: white;
+            margin-left:-50px;
+            text-decoration: underline;
+        }
+        [class = "rouxCounter"]
+        {
+            font-family: 'trebuchet';
+            font-size: 100%;
+            margin-left:-75px;
+        }
+        [class = "vegetableCounter"]
+        {
+            font-family: 'trebuchet';
+            font-size: 100%;
+            margin-left:-92px;
+        }
+        [class = "seafoodCounter"]
+        {
+            font-family: 'trebuchet';
+            font-size: 100%;
+            margin-left:-86px;
+        }
+        [class = "riceCounter"]
+        {
+            font-family: 'trebuchet';
+            font-size: 100%;
+            margin-left:-72px;
+        }
+        [class = "dayCount"]
+        {
+            font-family: 'trebuchet';
+            font-size: 150%;
+            position: absolute;
+            right: 145px;
+            top:75px;
+            margin: auto;
+            color: white;
+            text-decoration: bold;
+        }
+        [class = "blockerBoxRight"]
+        {    
+            position:absolute;
+            margin:auto;
+            height:300px;
+            width:350px;
+            background-color: black;
+            right:0px;
+            bottom:0px;
+            
+        }
+        [class = "blockerBoxLeft"] 
+        {
+            position:absolute;
+            margin:auto;
+            height:300px;
+            width:350px;
+            background-color: black;
+            left:0px;
+            bottom:0px;
+        }
+        [id = 'ingredientCounter']
+        {
+            color: white; 
+            position: absolute; 
+            left: 200px; 
+        }
+        [id = "roux_buy"] {
+            margin-left: 50px;
+        }
+        [id = 'rice_buy'] {
+            margin-left: 106px;
+        }
+        [id = 'seafood_buy'] {
+            margin-left: 24px;
+        }
+        [id = 'vegetable_buy'] {
+            margin-left: 22px;
+        }
+        [id = 'time']
+        {
+            color:white;
+            margin: auto;
+            margin-left: -150px;
+            font-size: 150%;
+            text-decoration: bold;
+            margin-top: 20px;
+        } 
+        [id = 'myBtn'] 
+        { 
+             position: absolute;
+             left: 150px;   
+             top: 300px;
+        }
+        [id = 'mainMenu']
+        {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        [id = 'customers'] 
+        {
+            position: relative;
+        }
+        [id = 'customer1'] {
+            position: absolute;
+            top: 325px;
+            visibility: hidden;
+        }
+        [id = 'customer2'] {
+            position: absolute;
+            top: 325px;
+            visibility: hidden;
+        }
+        [id = 'customer3'] {
+            position: absolute;
+            top: 325px;
+            visibility: hidden;
+        }
+        [id = 'customer4'] {
+            position: absolute;
+            top: 350px;
+            left:-350px;
+            /*visibility: hidden;*/
+        }
+        [id = 'customer5'] {
+            position: absolute;
+            top: 325px;
+            visibility: hidden;
+        }
+        /*End CSS Styling*/
+        </style>
+    </head>
+
+    <body> 
+        <div class = "background"></div> 
+        <!--<audio src="backgroundmusic.mp3" autoplay>
+            <source src="backgroundmusic.mp3">
+        </audio>-->
+        <div class = 'blockerBoxRight'></div>
+        <div class = 'blockerBoxLeft'></div>
+        <!-- Assigns a callable id to the various elements in the game and allows for unique CSS styling-->
+        <div class = 'moneyCounter'>
+            <p id = 'money'></p>
+            </div>
+            
+        <div class = 'time'>
+            <p id = 'time'></p>
+        </div> 
+         <div class = 'dayCount'>
+            <p id = 'dayCount'></p>
+        </div>
+        <div id = 'ingredientCounter'>
+        <div class = 'stock'>
+            <p id = 'stock'></p>
+        </div>
+        
+        <div class = 'rouxCounter'>
+            <p id = 'roux'></p>
+
+        </div> 
+        
+        <div class = 'riceCounter'>
+            <p id = 'rice'></p>
+            </div>
+        
+        <div class = 'seafoodCounter'>
+            <p id = 'seafood'></p>
+            </div>
+        
+        <div class = 'vegetableCounter'>
+            <p id = 'vegetable'></p>
+            </div>
+       
+        </div>
+         <div id = 'mainMenu'>
+            <a href = 'titlescreen.html'>
+            <img src = 'home.png'>
+            </a>
+        </div>
+         <button id="myBtn">Store</button>
+         
+         <!-- Formats basic structure of the store page & allows for CSS styling of the store & its contents-->
+         <div id="myModal" class="modal"> 
+        
+            <div class="modal-content"> 
+            <span class="close">&times;</span>
+            <div class = "storeTitle">
+            <p>Welcome to the Store!</p> 
+            </div>
+            <div class="storeContent">
+            <ul> 
+                <li>Roux Bundle - $5.00         <button id ='roux_buy'>Buy x 10</button></li> 
+                <li>Rice - $4.00                <button id="rice_buy">Buy x 10</button></li>
+                <li>Seafood Bundle - $12.00     <button id='seafood_buy'>Buy x 10</button></li> 
+                <li>Vegetable Bundle - $6.00    <button id='vegetable_buy'>Buy x 10</button></li>
+            </ul>
+             </div>
+            </div>
+         </div>
+        
+        <!--JavaScript-->
+        <script>
+        //variable declarations
+        var modal = document.getElementById('myModal');                                         //Modal, btn, and spn set up the store 
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        var roux = 0;
+        var vegetable =0;
+        var seafood = 0;
+        var dayCount = 0;
+        var time = 4;
+        var rice = 0;
+        var money = 100;
+        var timeState = 'AM'; 
+        var customers = [document.getElementById('customer1'), document.getElementById('customer2'), document.getElementById('customer3'), document.getElementById('customer4'), document.getElementById('customer5')];
+        var element = document.getElementById('customer4');
+        var position = 0;
+       
+        
+        setInterval(updateAmounts,50);                                                          //Runs Update function every 50 miliseconds
+        setInterval(timeCounter,2500);                                                           //Runs timeCounter function every 2.5 seconds
+       // setInterval(boatUpdate, 5000);
+        document.getElementById('dayCount').innerHTML = 'Day ' + (dayCount + 1);                //Initialize Day Counter and set to 1st Day
+        function timeCounter()
+        {
+            time = time+1;                                                                      //Increase the hour by 1
+            document.getElementById('dayCount').innerHTML = 'Day ' + (dayCount + 1);            //Displays the current day
+            if (time%24 === 22)                                                                 
+            {
+                dayCount++;                                                                     //Increases Day by 1 at 12 AM
+            }
+
+        
+        }
+        function updateAmounts()
+        {
+           
+        //switch between AM and PM
+            if (time%24 === 23)
+            {
+               timeState = "AM";                                                                
+            }
+            if (time%24 === 11)
+            {
+                timeState = "PM";
+            }
+
+        //Diplays currents values for the ingredients, money, and time
+        document.getElementById('stock').innerHTML = "Stock";
+        document.getElementById('seafood').innerHTML = seafood + " Seafood Bundles";
+        document.getElementById('money').innerHTML = "Current Balance: $"+money;
+        document.getElementById('vegetable').innerHTML = vegetable + " Vegetable Bundles";
+        document.getElementById('roux').innerHTML = roux + " Roux Bundles";
+        document.getElementById('rice').innerHTML = rice + " Cups of Rice";
+        document.getElementById('time').innerHTML = time%12 +1 + " " + timeState; 
+        
+
+        } 
+        // Purchase ingredients
+        
+        document.getElementById('rice_buy').addEventListener('click',function(){if ((money-4) >= 0 && ((time%24) < 10 || (time%24)> 19)){rice = rice+10;money = money-4;}});
+        document.getElementById('roux_buy').addEventListener('click',function(){if ((money-5) >=0 && ((time%24) < 10 || (time%24)> 19)){roux = roux+10;money = money-5;}});
+        document.getElementById('seafood_buy').addEventListener('click',function(){if ((money-12) >= 0 && ((time%24) < 10 || (time%24)> 19)){seafood = seafood+10;money = money-12;}});
+        document.getElementById('vegetable_buy').addEventListener('click',function(){if ((money-6) >=0 && ((time%24) < 10 || (time%24)> 19)){vegetable = vegetable+10;money = money-6;}});
+
+        //store box opening and closing
+        btn.onclick = function()
+        {
+            modal.style.display = "block";
+        };
+        span.onclick = function() 
+        {
+            modal.style.display = "none";
+        };
+        
+        moveCustomer ();
+        
+         //The actual animation function that will move and delete the image of the customer    
+        function moveCustomer() {
+            var id = setInterval(frame , 5);
+            function frame() {
+                position++;
+                if (position === 675 && ((time%24) > 8 && (time%24)< 19)) {
+                    drawCustomer();
+                    if(rice >= 2 && roux >= 1 && seafood >= 1 && vegetable >= 3)
+                    {
+                    //insert counter subtraction
+                    rice = rice -2;
+                    roux = roux -1;
+                    seafood = seafood - 1;
+                    vegetable = vegetable -3;
+                    money = money +8; 
+                    }
+                } else if (position >= 1050) {
+                    element.style.left = '-350px';
+                    position = 0;
+                    clearInterval(id);
+                    setTimeout(waitTimer,(Math.random()*1000));
+                } else if (((time%24) > 8 && (time%24)< 19)) {
+                   
+                    element.style.left = (position - 350) + 'px';//HERE
+                }
+                else if (time%24 === 19)
+                {
+                    element.style.left = '-350px';
+                }
+                else 
+                {
+                    element.style.visibility = 'hidden';
+                }
+            }
+        }
+        function drawCustomer() { 
+            element.style.visibility = "initial";
+        }
+        function waitTimer()
+        {
+            moveCustomer();
+        }
+        
+        
+    //   function boatUpdate()
+    //         { 
+            //   if ((time % 2 === 0) && ((time%24) > 8 && (time%24)< 19)) {
+            //     //drawCustomer(); 
+            //     moveCustomer(); 
+            //     console.log('hi');
+            // } 
+           // }
+        </script>
+    </body>
+</html>

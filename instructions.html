@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Instructions</title>
+        <style>
+        body
+        {
+            width: 650px;
+            height: 650px;
+            margin:0 auto;
+            background-color: black;
+            background-image: url("titlebackground.png");
+            background-size: 650px, 650px;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 25px;
+        }
+        
+        [id = "play_button"]
+        {
+    		display: block;
+   			position: relative;
+   			
+   			height: 70px;
+   			top: center;
+   			left: center;
+   			font-size: 300%;
+   			color: white;
+   			text-align: center;
+   			font-family: "trebuchet";
+	    }
+	    
+	    [id = "main_menu_button"]
+        {
+			display: block;
+			position: relative;
+		
+			height: 70px;
+			top: center;
+			left: center;
+			color: white;
+			font-size: 300%;
+			text-align: center;
+			font-family: "trebuchet";
+	    }
+	    
+	    [id = "instructions"]
+	    {
+	        display: block;
+	        position: relative;
+	        text-align: center;
+	        font-family: "trebuchet";
+	        color: white;
+	        font-size: 200%;
+	    }
+	    
+	    a:link {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        }
+        a:visited {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        }
+        a:hover {
+        text-decoration: underline;
+        }
+        a:active {
+        text-decoration: underline;
+        }
+        </style>
+    </head>
+
+    <body> 
+        <div id="instructions">
+            <p>Welcome to Cajun Cookout!</p>
+            <p>To play the game, buy the right amounts of ingredients to supply your customers with your famous seafood gumbo. The store only opens
+               at night, so plan carefully! Each bowl of gumbo contains 1 roux bundle, 2 cups of rice, 1 seafood bundle, and 3 vegetable bundles, so 
+               make sure to buy enough of each ingredient!</p>
+        </div>
+        
+        <!--<audio src="backgroundmusic.mp3" autoplay>
+            <source src="backgroundmusic.mp3">
+        </audio>-->
+        
+         <div id ="play_button">
+            <a href="game.html"><p>Play</p></a>
+         </div>
+         <div id="main_menu_button">
+             <a href="titlescreen.html"><p>Main Menu</p></a>
+         </div> 
+         
+    </body>
+</html>

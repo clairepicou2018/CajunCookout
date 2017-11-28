@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cajun Cookout</title>
+        <script src="jquery.min.js"></script>
+        <style>
+        body 
+        {
+            width: 650px;
+            height: 650px;
+            margin:0 auto;
+            background-color: black;
+            background-image: url("titlebackground.png");
+            background-size: 650px, 650px;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 25px;
+        }
+        [id = "play_button"]
+        {
+			display: block;
+			position: relative;
+			height: 70px;
+			top: center;
+			left: center;
+			font-size: 300%;
+			color: white;
+			text-align: center;
+			font-family: 'trebuchet';
+			
+		}
+		[id = "instructions_button"]
+        {
+			display: block;
+			position: relative;
+			height: 70px;
+			top: center;
+			left: center;
+			font-size: 300%;
+			color: white;
+			text-align: center;
+			font-family: 'trebuchet';
+		}
+		[id = "credits_button"]
+		{
+		    display: block;
+			position: relative;
+			height: 70px;
+			top: center;
+			left: center;
+			font-size: 300%;
+			color: white;
+			text-align: center;
+			font-family: 'trebuchet';
+		}
+		
+
+        
+        [class = title] 
+        {
+           color: rgb(255, 255, 255);
+           font-family: 'trebuchet';
+           font-size: 100px;
+           text-align: center;
+           margin: auto;
+           font-weight: bold;
+        }
+        
+        a:link {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        }
+
+        a:visited {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        }
+
+        a:hover {
+        text-decoration: underline;
+        }
+
+        a:active {
+        text-decoration: underline;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id = "all-contents">
+            
+        <div class = "title">Cajun Cookout</div>
+        
+        <!--<audio src="backgroundmusic.mp3" autoplay>
+            <source src="backgroundmusic.mp3">
+        </audio>-->
+        
+        <div class = "background"></div>
+        
+        <div id ="play_button">
+        <a href="game.html"><p>Play</p></a>
+        </div>
+        
+        <div id="instructions_button">
+            <a href="instructions.html"><p>Instructions</p></a>
+        </div>
+        
+        <div id="credits_button">
+            <a href="credits.html"><p>Credits</p></a>
+        </div>
+        
+        </div>
+        <!--JavaScript Starts-->
+    </body>
+</html>
